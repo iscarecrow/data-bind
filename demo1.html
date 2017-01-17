@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bind</title>
+  <style type="text/css">
+    .l{
+      float: left;
+    }
+     
+    .clr {
+      zoom: 1; }
+
+    .clr:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+      clear: both; }
+    #btn1:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="clr">
+    <div class="l" h-text="title" h-model="title"></div><div id="btn1" class="l" style="width:60px;height:30px;border: 1px solid gray; margin-left: 100px">click+1</div>
+  </div>
+
+  <p h-text="text" h-model="text"></p>
+
+  <input type="d1" h-model="d1"/>
+
+  <p h-text="d1"></p>
+</body>
+<script type="text/javascript" src="./demo1.js"></script>
+<script type="text/javascript">
+  var data = {
+    title:1,
+    text: 'demo1',
+    d1: 'hello world'
+  };
+
+  Hugin({
+    el: '',
+    data: data
+  });
+
+  var x = document.getElementById('btn1');
+
+  x.addEventListener('click',()=>{
+    data.title += 1;
+  });
+</script>
+</html>
